@@ -2,41 +2,48 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>KI-Chatbot für Ihr Unternehmen</title>
-  <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>KI-Chatbot – Ihr neuer 24/7-Verkäufer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --card: #101426;
-      --accent: #3b82f6;
-      --accent-soft: rgba(59,130,246,0.25);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --danger: #f97373;
-      --radius-lg: 18px;
-      --shadow-soft: 0 20px 60px rgba(0,0,0,0.6);
-      --max-width: 1100px;
+      --bg: #f4f8ff;
+      --panel: #ffffff;
+      --muted: #4b5563;
+      --text: #0f172a;
+      --accent: #2563eb;
+      --accent-2: #0ea5e9;
+      --accent-soft: rgba(37, 99, 235, 0.12);
+      --accent-strong: rgba(37, 99, 235, 0.18);
+      --radius-lg: 22px;
+      --shadow: 0 20px 60px rgba(37, 99, 235, 0.18);
+      --shadow-soft: 0 18px 38px rgba(15, 23, 42, 0.08);
+      --max-width: 1140px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #1f2937 0, #020617 40%, #000 100%);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.16), transparent 28%),
+                  radial-gradient(circle at 85% 12%, rgba(14, 165, 233, 0.16), transparent 26%),
+                  linear-gradient(180deg, #f7f9ff 0%, #edf3ff 60%, #eaf2ff 100%);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 28px 16px 56px;
+      padding: 28px 18px 72px;
     }
 
     header {
@@ -44,445 +51,475 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
-    .badge-private {
-      display: inline-flex;
+    .brand {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(16,185,129,0.18));
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid rgba(148,163,184,0.45);
+      gap: 12px;
     }
 
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
-    .logo-text {
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      font-size: 13px;
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy strong {
+      font-size: 14px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: #1d4ed8;
+    }
+
+    .brand-copy span {
+      font-size: 13px;
       color: var(--muted);
-      margin-top: 6px;
+    }
+
+    .cta-header {
+      display: grid;
+      gap: 6px;
+      justify-items: end;
     }
 
     .cta-header button {
       border-radius: 999px;
       border: none;
-      padding: 8px 18px;
-      font-size: 13px;
+      padding: 10px 20px;
+      font-size: 14px;
       cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), #2563eb);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
       color: white;
-      box-shadow: 0 12px 30px rgba(37,99,235,0.6);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
+      font-weight: 600;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .cta-header {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-
-    .cta-header button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(37,99,235,0.8);
-    }
-
-    .cta-header span {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 24px;
-      margin-bottom: 32px;
+      display: inline-flex;
+      gap: 8px;
       align-items: center;
     }
 
-    .hero-highlight {
-      display: inline-block;
-      background: var(--accent-soft);
-      border-radius: 999px;
-      padding: 5px 12px;
+    .cta-header button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.45);
+    }
+
+    .cta-header span {
       font-size: 12px;
-      color: #bfdbfe;
-      border: 1px solid rgba(59,130,246,0.55);
-      margin-bottom: 12px;
+      color: var(--muted);
     }
 
-    .hero-title {
-      font-size: 30px;
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 26px;
+      margin-bottom: 22px;
+      align-items: center;
+    }
+
+    .hero-left {
+      background: rgba(255,255,255,0.9);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e5edff;
+      backdrop-filter: blur(6px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
       line-height: 1.15;
-      font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .hero-title span {
-      color: var(--accent);
+    .hero h1 span {
+      color: #1d4ed8;
     }
 
     .hero-sub {
       color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+      font-size: 15px;
       margin-bottom: 16px;
-      margin-top: 4px;
     }
 
-    .hero-metric {
-      padding: 9px 12px;
-      background: rgba(15,23,42,0.9);
+    .hero-pain {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .pain-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 11px;
       border-radius: 14px;
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 12px;
+      background: #fff5f5;
+      border: 1px solid #fecdd3;
+      color: #991b1b;
+      font-size: 13px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
     }
 
-    .hero-metric strong {
-      display: block;
-      font-size: 16px;
-    }
-
-    .hero-cta-row {
+    .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
-      margin-bottom: 6px;
+      margin-top: 6px;
     }
 
     .btn-primary {
       border-radius: 999px;
       border: none;
-      padding: 11px 22px;
-      font-size: 14px;
+      padding: 12px 22px;
+      font-size: 15px;
       cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), #2563eb);
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
       color: white;
-      box-shadow: 0 16px 45px rgba(37,99,235,0.9);
-      font-weight: 600;
+      box-shadow: 0 18px 48px rgba(37, 99, 235, 0.45);
+      font-weight: 700;
       letter-spacing: 0.02em;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 22px 60px rgba(37,99,235,1);
+      box-shadow: 0 22px 62px rgba(37, 99, 235, 0.55);
     }
 
     .btn-ghost {
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      padding: 10px 18px;
-      font-size: 13px;
+      padding: 11px 18px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid #dbeafe;
+      color: #1f2937;
+      font-weight: 600;
       cursor: pointer;
-      background: transparent;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
       color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .hero-right {
+      background: linear-gradient(165deg, #f8fbff 0%, #e8f1ff 100%);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid #dbeafe;
+      box-shadow: var(--shadow);
+    }
+
+    .preview-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      border: 1px solid #e5edff;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 10px;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge-live {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .btn-ghost span.icon {
-      font-size: 16px;
-    }
-
-    .hero-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(59,130,246,0.35), transparent 55%), var(--card);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148,163,184,0.45);
-    }
-
-    .hero-card h3 {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .hero-card p {
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0891b2;
+      font-weight: 600;
+      border: 1px solid #bae6fd;
       font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 12px;
     }
 
-    .hero-chat-window {
-      background: rgba(15,23,42,0.95);
+    .chat-window {
+      background: #0f172a;
+      color: #e5e7eb;
       border-radius: 14px;
       padding: 10px;
-      font-size: 12px;
-      border: 1px solid rgba(51,65,85,0.9);
-      margin-bottom: 8px;
+      border: 1px solid #1f2937;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      display: grid;
+      gap: 8px;
     }
 
     .chat-msg {
-      max-width: 92%;
-      padding: 7px 9px;
-      border-radius: 13px;
-      margin-bottom: 5px;
+      max-width: 94%;
+      padding: 9px 11px;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.45;
     }
 
     .chat-msg.user {
-      background: #0f172a;
+      background: #111827;
       margin-left: auto;
-      border-bottom-right-radius: 4px;
+      border-bottom-right-radius: 5px;
+      border: 1px solid #1f2937;
     }
 
     .chat-msg.bot {
-      background: #111827;
-      border-bottom-left-radius: 4px;
+      background: #0b1223;
+      border-bottom-left-radius: 5px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    .hero-kpi {
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 4px;
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
     }
 
-    .hero-alert {
-      margin-top: 9px;
-      font-size: 11px;
-      padding: 8px 10px;
+    .stat-card {
+      background: #f8fbff;
       border-radius: 12px;
-      background: rgba(248,113,113,0.08);
-      color: #fecaca;
-      border: 1px solid rgba(248,113,113,0.5);
+      padding: 10px 12px;
+      border: 1px solid #dbeafe;
+      font-size: 12px;
+      color: #1f2937;
     }
 
-    /* Generic section */
-    section {
-      background: rgba(15,23,42,0.95);
+    .stat-card strong {
+      display: block;
+      font-size: 16px;
+      color: #1d4ed8;
+    }
+
+    section.section {
+      background: #ffffff;
       border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(31,41,55,0.95);
-      box-shadow: 0 18px 40px rgba(15,23,42,1);
+      padding: 20px 18px;
+      margin-top: 18px;
+      border: 1px solid #e5edff;
+      box-shadow: var(--shadow-soft);
     }
 
-    section h2 {
-      font-size: 19px;
-      margin-bottom: 8px;
+    section.section h2 {
+      font-size: 22px;
+      margin-bottom: 6px;
     }
 
-    section .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 10px;
+    section.section p {
       color: var(--muted);
-      margin-bottom: 3px;
-    }
-
-    section p {
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 14px;
     }
 
     .two-col {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-      margin-top: 4px;
+      gap: 16px;
+      margin-top: 10px;
+      align-items: start;
     }
 
     .list {
-      margin-top: 8px;
+      margin-top: 10px;
       display: grid;
-      gap: 7px;
-      font-size: 13px;
+      gap: 9px;
+      font-size: 14px;
     }
 
     .list-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      background: #f8fbff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid #dbeafe;
     }
 
     .list-bullet {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
-      margin-top: 4px;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.45);
-      flex-shrink: 0;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
+      margin-top: 3px;
     }
 
     .list-strong {
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .pain-callout {
-      margin-top: 8px;
-      padding: 9px 10px;
-      border-radius: 13px;
-      background: rgba(15,23,42,1);
-      border: 1px dashed rgba(248,113,113,0.6);
-      font-size: 12px;
-      color: #fecaca;
+      font-weight: 700;
+      color: #0f172a;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 10px;
+      margin-top: 12px;
     }
 
     .pill {
+      padding: 8px 12px;
       border-radius: 999px;
-      padding: 6px 9px;
-      font-size: 11px;
-      border: 1px solid rgba(148,163,184,0.5);
-      color: var(--muted);
-      background: rgba(15,23,42,1);
-    }
-
-    /* Steps */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4,minmax(0,1fr));
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .step-card {
-      background: rgba(15,23,42,1);
-      border-radius: 14px;
-      padding: 9px;
-      border: 1px solid rgba(55,65,81,1);
+      border: 1px solid #dbeafe;
+      background: #f8fbff;
+      color: #1f2937;
+      font-weight: 600;
       font-size: 12px;
     }
 
+    .highlight-box {
+      padding: 12px 14px;
+      background: #ecfdf3;
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      color: #166534;
+      font-size: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .step-card {
+      background: #f8fbff;
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+    }
+
     .step-number {
-      display: inline-flex;
-      width: 20px;
-      height: 20px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      margin-bottom: 4px;
+      background: var(--accent);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
     }
 
     .step-title {
-      font-weight: 600;
-      margin-bottom: 3px;
+      font-weight: 700;
+      color: #0f172a;
     }
 
-    /* Metrics */
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(4,minmax(0,1fr));
-      gap: 8px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-top: 12px;
     }
 
     .metric-card {
-      background: rgba(15,23,42,1);
+      background: linear-gradient(135deg, #f8fbff, #eef4ff);
+      border: 1px solid #dbeafe;
       border-radius: 14px;
-      padding: 8px 9px;
-      border: 1px solid rgba(55,65,81,1);
-      font-size: 11px;
+      padding: 12px;
+      font-size: 13px;
+      box-shadow: var(--shadow-soft);
     }
 
     .metric-card strong {
       display: block;
-      font-size: 15px;
-      margin-bottom: 1px;
-      color: #e5e7eb;
+      font-size: 18px;
+      color: #1d4ed8;
+      margin-bottom: 2px;
     }
 
-    /* CTA main */
     .cta-main {
       text-align: center;
-      padding: 22px 16px;
-      background: radial-gradient(circle at top, rgba(59,130,246,0.5), transparent 55%), rgba(15,23,42,0.98);
-      border-radius: 22px;
-      border: 1px solid rgba(59,130,246,0.8);
+      padding: 24px 18px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(14,165,233,0.12));
+      border-radius: 24px;
+      border: 1px solid #dbeafe;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
     }
 
     .cta-main h2 {
-      font-size: 21px;
-      margin-bottom: 5px;
-    }
-
-    .cta-main p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .cta-main small {
-      display: block;
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .cta-main .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      font-size: 24px;
       margin-bottom: 6px;
     }
 
-    /* FAQ */
+    .cta-main p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
     .faq-list {
-      margin-top: 8px;
+      margin-top: 12px;
       display: grid;
-      gap: 7px;
+      gap: 10px;
     }
 
     .faq-item {
-      padding: 8px 9px;
+      padding: 12px 14px;
       border-radius: 14px;
-      background: rgba(15,23,42,1);
-      border: 1px solid rgba(31,41,55,1);
-      font-size: 12px;
-      text-align: left;
+      background: #f8fbff;
+      border: 1px solid #dbeafe;
+      font-size: 13px;
     }
 
     .faq-q {
-      font-weight: 600;
-      margin-bottom: 3px;
-      color: #e5e7eb;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #0f172a;
     }
 
     .faq-a {
@@ -490,44 +527,54 @@
     }
 
     footer {
-      margin-top: 22px;
-      font-size: 11px;
+      margin-top: 28px;
+      font-size: 12px;
       color: var(--muted);
       text-align: center;
     }
 
     footer span {
-      color: var(--accent);
+      color: #1d4ed8;
+      font-weight: 700;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero {
-        grid-template-columns: minmax(0,1fr);
+        grid-template-columns: 1fr;
       }
-      .metrics-row {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+      .steps, .metrics-row, .stat-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
       }
-      .steps {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-      }
+    }
+
+    @media (max-width: 640px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
       .cta-header {
-        align-items: flex-start;
+        justify-items: start;
       }
-    }
-
-    @media (max-width: 640px) {
       .page {
-        padding: 22px 12px 40px;
+        padding: 22px 14px 56px;
       }
-      .hero-title {
-        font-size: 24px;
+      .hero h1 {
+        font-size: 28px;
       }
-      section {
-        padding: 15px 13px;
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .steps, .metrics-row, .stat-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary, .btn-ghost {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
       }
     }
   </style>
@@ -535,278 +582,228 @@
 <body>
   <div class="page">
     <header>
-      <div>
-        <div class="badge-private">
-          <div class="badge-dot"></div>
-          Nicht gelistet – nur über diesen Link erreichbar
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <div class="brand-copy">
+          <strong>Chatbot Funnel</strong>
+          <span>Lead-Automatisierung & Verkaufs-Dialoge</span>
         </div>
-        <div class="logo-text">KI-Chatbot · Vertriebsautomatisierung</div>
       </div>
       <div class="cta-header">
         <button onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
           Jetzt WhatsApp-Analyse starten
+          <span>⚡</span>
         </button>
-        <span>Antwort innerhalb kurzer Zeit</span>
+        <span>Antwort gewöhnlich in &lt; 15 Minuten</span>
       </div>
     </header>
 
     <main>
-      <!-- HERO -->
       <section class="hero">
-        <div>
-          <div class="hero-highlight">
-            Wie viele Anfragen verliert Ihre Website – ohne dass Sie es merken?
-          </div>
-          <h1 class="hero-title">
-            KI-Chatbot für Ihr Unternehmen:
-            <span>Ihr neuer 24/7-Verkäufer auf der Website.</span>
-          </h1>
+        <div class="hero-left">
+          <div class="eyebrow">Verkauf 2025</div>
+          <h1>Ihre Website verliert täglich Anfragen. <span>Ein KI-Chatbot holt sie zurück.</span></h1>
           <p class="hero-sub">
-            Die meisten Unternehmens-Websites sind digitale Flyer: man kann sie anschauen, aber nicht mit ihnen sprechen.
-            Ein KI-Chatbot verwandelt anonyme Besucher in echte Anfragen, Gespräche und Umsatz – automatisch.
+            Besucher kommen über Google, Social Ads oder Empfehlungen – und verschwinden wieder, weil niemand mit ihnen spricht.
+            Ihr neuer 24/7-Chatbot reagiert sofort, qualifiziert vor und bringt fertig vorbereitete Leads direkt zu Ihnen.
           </p>
 
-          <div class="hero-metrics">
-            <div class="hero-metric">
-              <strong>+327&nbsp;%</strong>
-              mehr qualifizierte Leads durch Chat-Dialoge statt stillem Lesen.
-            </div>
-            <div class="hero-metric">
-              <strong>24/7</strong>
-              Erreichbarkeit – auch abends, am Wochenende und an Feiertagen.
-            </div>
+          <div class="hero-pain">
+            <div class="pain-chip">🔥 63 % der Website-Besucher springen ab, wenn sie nicht in 30 Sekunden antworten können.</div>
+            <div class="pain-chip">💸 Werbebudget verpufft – ohne Chat bleiben Anfragen anonym und unsichtbar.</div>
           </div>
 
-          <div class="hero-cta-row">
-            <a class="btn-primary" href="https://wa.me/YOURNUMBER?text=Ich%20interessiere%20mich%20f%C3%BCr%20einen%20KI-Chatbot%20f%C3%BCr%20unser%20Unternehmen." target="_blank" rel="noreferrer">
-              Über WhatsApp anfragen
+          <div class="hero-ctas">
+            <a class="btn-primary" href="https://wa.me/YOURNUMBER?text=Ich%20will%20wissen%2C%20wie%20der%20KI-Chatbot%20unsere%20Leads%20steigert." target="_blank" rel="noreferrer">
+              WhatsApp: Sofort anfragen
               <span>💬</span>
             </a>
             <button class="btn-ghost" onclick="document.getElementById('pain').scrollIntoView({behavior:'smooth'})">
-              <span class="icon">👇</span>
-              Sehen, was Sie aktuell verlieren
+              Was Sie heute verlieren ↓
             </button>
           </div>
-          <div class="hero-note">
-            Individuelles Setup für Ihr Unternehmen – begrenzte Projektanzahl pro Monat.
+          <div class="hero-meta">
+            <span>✓ Individuelle Dialoge in Ihrem Wording</span>
+            <span>✓ Voll integriert in Website, CRM oder WhatsApp</span>
+            <span>✓ Umsetzung in wenigen Tagen</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <h3>So arbeitet Ihr digitaler Verkäufer in der Praxis:</h3>
-          <p>Beispiel-Dialog, wie ein KI-Chatbot aus einem anonymen Besucher einen konkreten Interessenten macht.</p>
-          <div class="hero-chat-window">
-            <div class="chat-msg user">
-              Guten Tag, was kostet bei Ihnen ungefähr [Dienstleistung]?
+        <div class="hero-right">
+          <div class="preview-card">
+            <div class="preview-header">
+              <div>
+                <strong>Live-Demo · Digitaler Verkäufer</strong>
+                <div style="color:#6b7280;font-size:12px;">So verwandelt der Chatbot anonyme Besucher in echte Kontakte.</div>
+              </div>
+              <div class="badge-live">
+                <span style="width:9px;height:9px;border-radius:999px;background:#22c55e;box-shadow:0 0 10px #22c55e;"></span>
+                aktiv
+              </div>
             </div>
-            <div class="chat-msg bot">
-              Guten Tag 👋 Darf ich kurz fragen: Für wie viele Personen bzw. Standorte benötigen Sie die Leistung?
+            <div class="chat-window">
+              <div class="chat-msg user">Guten Tag, können Sie mir grob den Preis für Ihre Dienstleistung nennen?</div>
+              <div class="chat-msg bot">Hallo! Gerne. Für welche Branche und wie viele Standorte soll der Service eingesetzt werden?</div>
+              <div class="chat-msg user">Wir haben zwei Standorte, Fokus B2B.</div>
+              <div class="chat-msg bot">Perfekt. Damit liegen Sie meist im Professional-Paket. Ich kann ein konkretes Angebot vorbereiten – sollen wir kurz telefonieren oder reicht Ihnen vorab ein PDF per E-Mail?</div>
             </div>
-            <div class="chat-msg user">
-              Für zwei Standorte in der Region.
+            <div class="stat-grid">
+              <div class="stat-card"><strong>0,4s</strong>Antwortzeit – kein Warten, kein Absprung.</div>
+              <div class="stat-card"><strong>+327 %</strong>mehr Leads, weil Besucher direkt in Dialog gehen.</div>
+              <div class="stat-card"><strong>24/7</strong>auch abends &amp; Wochenende aktiv.</div>
             </div>
-            <div class="chat-msg bot">
-              Perfekt, dann passt eines unserer Pakete sehr gut. Ich kann Ihnen ein unverbindliches Angebot vorbereiten.
-              Sollen wir dazu kurz telefonieren oder möchten Sie die Infos per E-Mail?
-            </div>
-          </div>
-          <div class="hero-kpi">
-            <span>⚡ Antwortzeit: 0,4 Sekunden</span>
-            <span>🎯 Ergebnis: Qualifizierter Lead mit Kontaktdaten</span>
-          </div>
-          <div class="hero-alert">
-            Ohne Chatbot wäre dieser Besucher anonym verschwunden. Mit Chatbot wird daraus eine echte Anfrage – automatisch.
           </div>
         </div>
       </section>
 
-      <!-- PAIN -->
-      <section id="pain">
+      <section id="pain" class="section">
         <div class="eyebrow">Problem</div>
-        <h2>Ihre Website spricht nicht mit Ihren Besuchern – Ihre Konkurrenz schon.</h2>
+        <h2>Ihre Website ist stumm. Ihre Konkurrenz schreibt zurück.</h2>
+        <p>Wenn Besucher keine sofortige Antwort oder klare Führung erhalten, passiert Folgendes:</p>
         <div class="two-col">
-          <div>
-            <p>
-              Kunden erwarten heute Antworten in Sekunden. Wenn Ihre Website keine Fragen beantwortet, keine Kontakte einsammelt
-              und außerhalb der Bürozeiten „stumm“ ist, passiert Folgendes:
-            </p>
-            <div class="list">
-              <div class="list-item">
-                <div class="list-bullet"></div>
-                <div><span class="list-strong">Anfragen versickern</span> – vor allem abends, am Wochenende und auf dem Smartphone.</div>
-              </div>
-              <div class="list-item">
-                <div class="list-bullet"></div>
-                <div><span class="list-strong">Werbebudget verpufft</span> – Besucher kommen über Google, Social Media oder Anzeigen, finden keine direkte Ansprache und gehen wieder.</div>
-              </div>
-              <div class="list-item">
-                <div class="list-bullet"></div>
-                <div><span class="list-strong">Umsatz bleibt unsichtbar auf der Straße liegen</span> – Sie sehen nicht einmal, wie viel Potenzial verloren geht.</div>
-              </div>
+          <div class="list">
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Anfragen versickern</span> – vor allem abends, am Wochenende und mobil.</div>
+            </div>
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Werbebudget verpufft</span> – Klicks werden zu Absprüngen, weil kein Dialog startet.</div>
+            </div>
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Team ist überlastet</span> – manuelle Antworten brauchen Zeit, gehen unter oder kommen zu spät.</div>
             </div>
           </div>
-          <div>
-            <p><strong>Typische Situation – vielleicht kommt sie Ihnen bekannt vor:</strong></p>
-            <div class="pain-callout">
-              ✅ Ein Interessent sucht abends nach einem Dienstleister.<br/>
-              ✅ Er hat 2–3 Fragen und möchte grob den Preis einschätzen.<br/>
-              ❌ Auf Ihrer Website findet er kein Chat, keine Sofort-Antwort, keine echte Interaktion.<br/>
-              ➜ Er klickt zurück zu Google und schreibt den nächsten Anbieter an, der schneller reagiert.<br/><br/>
-              <strong>Ergebnis: Der Auftrag geht an jemand anderen – Ihr Team erfährt nie, dass es diese Chance gab.</strong>
+          <div class="list">
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Kein klares Bild</span> – Sie sehen nicht, welche Einwände Besucher haben, bevor sie abspringen.</div>
+            </div>
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Mitbewerber reagieren schneller</span> – wer zuerst antwortet, gewinnt den Auftrag.</div>
+            </div>
+            <div class="list-item">
+              <div class="list-bullet"></div>
+              <div><span class="list-strong">Verlorene Deals bleiben unsichtbar</span> – weil es nie einen Kontakt gab.</div>
             </div>
           </div>
         </div>
         <div class="pill-row">
-          <div class="pill">„Wir melden uns schnellstmöglich zurück“ reicht 2025 nicht mehr.</div>
-          <div class="pill">Responsivität ist ein Wettbewerbsvorteil – oder Ihr größter Nachteil.</div>
+          <div class="pill">„Wir melden uns schnellstmöglich“ kostet Sie reale Umsätze.</div>
+          <div class="pill">Responsivität ist 2025 der härteste Wettbewerbsvorteil.</div>
         </div>
       </section>
 
-      <!-- LÖSUNG -->
-      <section>
+      <section class="section">
         <div class="eyebrow">Lösung</div>
-        <h2>Ein KI-Chatbot, der Ihre Website in einen aktiven Verkäufer verwandelt.</h2>
+        <h2>Ihr KI-Chatbot: Sofort-Antwort, Vorqualifizierung, Übergabe an Ihr Team.</h2>
         <div class="two-col">
           <div>
-            <p>
-              Statt Besucher einfach wieder gehen zu lassen, übernimmt ein KI-gestützter Chatbot die erste Kommunikation:
-              vollautomatisch, freundlich, 24/7 und in Ihrem Wording.
-            </p>
+            <p>Der Chatbot übernimmt den ersten Kontakt, klärt die wichtigsten Fragen und sammelt alle Daten, bevor der Besucher abspringt.</p>
             <div class="list">
               <div class="list-item">
                 <div class="list-bullet"></div>
-                <div><span class="list-strong">Antwortet in Sekunden</span> auf typische Fragen zu Leistungen, Preisen, Verfügbarkeit und Prozessen.</div>
+                <div><span class="list-strong">Antwortet in Sekunden</span> mit Ihrem Wording, Fakten, Preisen und klaren Call-to-Actions.</div>
               </div>
               <div class="list-item">
                 <div class="list-bullet"></div>
-                <div><span class="list-strong">Sammelt Kontaktdaten</span> (Name, E-Mail, Telefonnummer), bevor der Besucher abspringt.</div>
+                <div><span class="list-strong">Fragt gezielt nach</span> Bedarf, Budget, Zeitrahmen – und filtert so echte Kaufabsichten heraus.</div>
               </div>
               <div class="list-item">
                 <div class="list-bullet"></div>
-                <div><span class="list-strong">Qualifiziert Leads vor</span> (Bedarf, Budget, Zeitrahmen), damit Sie nur mit passenden Interessenten sprechen.</div>
+                <div><span class="list-strong">Überträgt automatisch</span> an WhatsApp, E-Mail oder CRM, damit Ihr Team nur noch abschließt.</div>
               </div>
               <div class="list-item">
                 <div class="list-bullet"></div>
-                <div><span class="list-strong">Leitet Anfragen an WhatsApp, E-Mail oder Telefon</span> – so landet alles dort, wo Sie sowieso arbeiten.</div>
+                <div><span class="list-strong">Saubere Compliance</span> – klar begrenzt, DSGVO-konform, mit Eskalation an Menschen.</div>
               </div>
             </div>
           </div>
           <div>
-            <p><strong>Ihr Vorteil:</strong> Der Chatbot ersetzt niemanden – er sorgt einfach dafür, dass deutlich mehr echte Anfragen bei Ihnen ankommen.</p>
+            <div class="highlight-box">
+              <strong>Ihr Vorteil:</strong> Mehr qualifizierte Gespräche ohne mehr Personal. Der Chatbot ersetzt niemanden – er bringt Ihrem Vertrieb nur die besseren Chancen auf den Tisch.
+            </div>
             <div class="metrics-row">
-              <div class="metric-card">
-                <strong>+327&nbsp;%</strong>
-                mehr Leads durch aktive Gesprächsführung statt passiver Infos.
-              </div>
-              <div class="metric-card">
-                <strong>+41&nbsp;%</strong>
-                höhere Abschlussrate durch bessere Vorqualifizierung.
-              </div>
-              <div class="metric-card">
-                <strong>–63&nbsp;%</strong>
-                weniger verlorene Kontakte außerhalb Ihrer Öffnungszeiten.
-              </div>
-              <div class="metric-card">
-                <strong>24/7</strong>
-                verfügbar – ohne Überstunden, Urlaube oder Kranktage.
-              </div>
+              <div class="metric-card"><strong>+327 %</strong>mehr Leads durch aktive Gesprächsführung.</div>
+              <div class="metric-card"><strong>+41 %</strong>höhere Abschlussrate dank Vorqualifizierung.</div>
+              <div class="metric-card"><strong>−63 %</strong>weniger verlorene Kontakte außerhalb der Öffnungszeiten.</div>
+              <div class="metric-card"><strong>24/7</strong>verfügbar – auch an Feiertagen.</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PROCESS -->
-      <section>
+      <section class="section">
         <div class="eyebrow">Ablauf</div>
-        <h2>So kommen Sie in vier Schritten zum eigenen KI-Chatbot.</h2>
-        <p>
-          Sie müssen keine Technik beherrschen und kein großes Projekt lostreten.
-          Der komplette Prozess ist schlank, klar und auf Umsetzung ausgerichtet.
-        </p>
+        <h2>In vier Schritten zum eigenen KI-Chatbot – ohne Technikstress.</h2>
+        <p>Wir halten den Prozess schlank. Sie sehen schnell Ergebnisse und behalten die Kontrolle.</p>
         <div class="steps">
           <div class="step-card">
             <div class="step-number">1</div>
             <div class="step-title">WhatsApp-Kurzanalyse</div>
-            <div>Sie schreiben mir kurz, wie Ihre aktuelle Website aussieht und welche Dienstleistung/Produkte Sie anbieten.</div>
+            <div>Sie schicken mir Ihre Website & Zielgruppe. Wir prüfen Potenzial und Use-Cases.</div>
           </div>
           <div class="step-card">
             <div class="step-number">2</div>
-            <div class="step-title">Konzept & Dialogdesign</div>
-            <div>Ich entwickle eine Dialogstruktur, die Besucher abholt, qualifiziert und zu konkreten Anfragen führt.</div>
+            <div class="step-title">Dialog-Design</div>
+            <div>Wir bauen Hooks, Fragen und Antworten, die Besucher fesseln und qualifizieren.</div>
           </div>
           <div class="step-card">
             <div class="step-number">3</div>
             <div class="step-title">Technische Umsetzung</div>
-            <div>Ihr Chatbot wird (z. B. mit BotPress) aufgesetzt und sauber in Ihre Website integriert.</div>
+            <div>Setup mit Tools wie BotPress, Anbindung an Website, CRM, WhatsApp.</div>
           </div>
           <div class="step-card">
             <div class="step-number">4</div>
-            <div class="step-title">Feinschliff & Optimierung</div>
-            <div>Nach den ersten echten Gesprächen optimieren wir die Antworten, Hooks und Fragen für maximale Wirkung.</div>
+            <div class="step-title">Optimierung im Livebetrieb</div>
+            <div>Feinschliff nach echten Gesprächen: bessere Antworten, bessere Conversion.</div>
           </div>
         </div>
       </section>
 
-      <!-- CTA MAIN -->
       <section id="cta" class="cta-main">
         <div class="eyebrow">Direkter Kontakt</div>
         <h2>Wie viele Leads wollen Sie sich noch entgehen lassen?</h2>
-        <p>
-          Wenn Sie bis hierhin gelesen haben, wissen Sie: Ihre Website könnte deutlich mehr für Sie tun.
-          Der einfachste nächste Schritt ist eine kurze, unverbindliche WhatsApp-Nachricht.
-        </p>
+        <p>Eine kurze WhatsApp-Nachricht reicht. Wir prüfen gemeinsam, wie der Chatbot bei Ihnen Umsatz freilegt.</p>
         <div class="cta-buttons">
-          <a class="btn-primary" href="https://wa.me/YOURNUMBER?text=Ich%20interessiere%20mich%20f%C3%BCr%20einen%20KI-Chatbot%20f%C3%BCr%20unser%20Unternehmen." target="_blank" rel="noreferrer">
+          <a class="btn-primary" href="https://wa.me/YOURNUMBER?text=Ich%20möchte%20eine%20KI-Chatbot-Analyse%20für%20unsere%20Website." target="_blank" rel="noreferrer">
             Jetzt über WhatsApp anfragen
             <span>💬</span>
           </a>
+          <button class="btn-ghost" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
+            Häufige Fragen ansehen
+          </button>
         </div>
-        <small>
-          Kein Pitch-Marathon, keine PowerPoint-Schlacht. Wir klären kurz, wie Ihre Situation aussieht,
-          ob ein KI-Chatbot bei Ihnen sinnvoll ist – und wie der konkrete nächste Schritt aussehen kann.
-        </small>
+        <small style="color:#4b5563;display:block;margin-top:8px;">Kein Pitch-Marathon. Wir klären in wenigen Minuten, ob sich der Chatbot für Sie rechnet.</small>
       </section>
 
-      <!-- FAQ -->
-      <section>
+      <section id="faq" class="section">
         <div class="eyebrow">Einwände</div>
         <h2>Häufige Fragen, bevor Unternehmen starten.</h2>
         <div class="faq-list">
           <div class="faq-item">
-            <div class="faq-q">„Ist das nicht zu kompliziert für uns?“</div>
-            <div class="faq-a">
-              Nein. Sie müssen kein Technik-Team freistellen. Sie bekommen ein fertiges, getestetes System,
-              das einfach in Ihre bestehende Website integriert wird. Die Umsetzung übernehme ich.
-            </div>
+            <div class="faq-q">„Ist das technisch kompliziert?“</div>
+            <div class="faq-a">Nein. Sie brauchen kein IT-Projekt. Sie bekommen ein fertiges System, das in Ihre Website eingebettet wird und sofort läuft.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">„Was ist, wenn der Chatbot Unsinn erzählt?“</div>
-            <div class="faq-a">
-              Der Chatbot wird mit Ihren Inhalten gefüttert und bewusst begrenzt. 
-              Außerdem definieren wir klare Regeln: Wenn eine Frage nicht sicher beantwortet werden kann,
-              wird an einen menschlichen Ansprechpartner übergeben.
-            </div>
+            <div class="faq-q">„Und wenn der Chatbot Unsinn erzählt?“</div>
+            <div class="faq-a">Wir begrenzen Wissen und Tonalität strikt, testen realistisch und leiten unsichere Fälle automatisch an Menschen weiter.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">„Wie schnell sehen wir Ergebnisse?“</div>
-            <div class="faq-a">
-              In vielen Fällen gibt es direkt in den ersten Tagen nach Live-Schaltung mehr Interaktionen, Chat-Dialoge und konkrete Kontaktdaten.
-              Vorher unsichtbare Besucher werden messbar.
-            </div>
+            <div class="faq-a">Meist in den ersten Tagen: mehr Dialoge, mehr Kontakte, bessere Einblicke in echte Einwände Ihrer Besucher.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">„Was kostet das?“</div>
-            <div class="faq-a">
-              Die Investition hängt von Umfang und Tiefe des Chatbots ab. 
-              Im Gespräch schauen wir gemeinsam, ab welchem Punkt sich das System für Sie mehrfach bezahlt macht.
-              Wenn dieser Punkt nicht realistisch ist, arbeiten wir nicht zusammen.
-            </div>
+            <div class="faq-a">Die Investition hängt von Tiefe und Integrationen ab. Wir rechnen mit Ihnen, ab wann sich das System mehrfach bezahlt macht – nur dann starten wir.</div>
           </div>
         </div>
       </section>
 
       <footer>
-        Diese Seite ist <span>nicht öffentlich gelistet</span> und nur über Ihren individuellen Link aufrufbar.<br/>
+        Diese Seite ist <span>nicht öffentlich gelistet</span> und nur über Ihren individuellen Link aufrufbar. <br />
         Passen Sie vor dem Livegang unbedingt <strong>YOURNUMBER</strong> in der WhatsApp-URL an Ihre echte Nummer an.
       </footer>
     </main>
